@@ -109,6 +109,13 @@ unsafe extern "C" fn marth_specialn_main_loop(fighter: &mut L2CFighterCommon) ->
 		}
 		//LAB_7100009430:
 	}
+	if MotionModule::is_end(fighter.module_accessor) {
+		if fighter.global_table[0x16] != *SITUATION_KIND_GROUND {
+			fighter.change_status(FIGHTER_STATUS_KIND_FALL.into(), false.into());
+		} else {
+			fighter.change_status(FIGHTER_STATUS_KIND_WAIT.into(), false.into());
+		}
+	}
 	return 0.into();
 }
 
