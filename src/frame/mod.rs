@@ -241,7 +241,8 @@ unsafe fn marth_game_specialn(agent: &mut L2CAgentBase) {
 		macros::FT_MOTION_RATE(agent, 1.0);
 		frame(agent.lua_state_agent, 9.0);
 		if macros::is_excute(agent) {
-			macros::EFFECT(agent, Hash40::new("sys_bomb_a"), Hash40::new("top"), 0.0, 16.0, 0.0, 0, 0, 0, 1.5, 0, 0, 0, 0, 0, 0, true);
+			macros::EFFECT(agent, Hash40::new("sys_bomb_c"), Hash40::new("top"), 0.0, 16.0, 0.0, 0, 0, 0, 1.1, 0, 0, 0, 0, 0, 0, true);
+			macros::PLAY_SE(agent, Hash40::new("se_common_bomb_l"));
 			macros::ATTACK(agent, 0, 0, Hash40::new("top"), 24.0, 361, 85, 0, 58, 26.0, 0.0, 16.0, 0.0, None, None, None, 2.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0.5, 0.0, 0, false, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_SWORD);
 			state[entry_id] = 0;
 			percSelect[entry_id] = 999.0;
@@ -261,6 +262,7 @@ unsafe fn marth_game_specialn(agent: &mut L2CAgentBase) {
 			macros::EFFECT(agent, Hash40::new("sys_shield_damage2"), Hash40::new("top"), 0, 0.0, 0.0, 0, 0, 0, 7.0, 0, 0, 0, 0, 0, 0, true);
 			macros::LAST_EFFECT_SET_COLOR(agent, 1.0, 1.0, 0.0);
 			macros::LAST_EFFECT_SET_ALPHA(agent, 0.4);
+			macros::PLAY_SE(agent, Hash40::new("se_common_elec_l_damage"));
 			timeDilationZoneTimer[entry_id] = 600.0;
 			state[entry_id] = 0;
 			percSelect[entry_id] = 999.0;
@@ -274,6 +276,7 @@ unsafe fn marth_game_specialn(agent: &mut L2CAgentBase) {
 			macros::EFFECT(agent, Hash40::new("sys_shield_damage2"), Hash40::new("top"), 0, 30.0, 0, 0, 0, 0, 6.0, 0, 0, 0, 0, 0, 0, true);
 			macros::LAST_EFFECT_SET_COLOR(agent, 0.0, 0.8, 1.0);
 			macros::LAST_EFFECT_SET_ALPHA(agent, 0.6);
+			macros::PLAY_SE(agent, Hash40::new("se_common_frieze_l"));
 		}
 		frame(agent.lua_state_agent, 12.0);
 		if macros::is_excute(agent) {
